@@ -5,17 +5,15 @@ import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+public class spPanel extends JPanel {
 
-public class spPanel extends JPanel{
-    
-         private ImageIcon img ;
-    Color co1 = new Color(232,234,230);
-    Color co11 = new Color(207,218,200);
-    
-    public spPanel ()
-    {
+    private ImageIcon img;
+    Color co1 = new Color(232, 234, 230);
+    Color co11 = new Color(207, 218, 200);
+
+    public spPanel() {
         this.setLayout(null);
-        this.setSize(300,700);
+        this.setSize(300, 700);
         this.setBackground(co11);
     }
 
@@ -33,12 +31,10 @@ public class spPanel extends JPanel{
         g.fill3DRect(40, 70, 220, 520, true);
         g.setColor(co1);
         g.fill3DRect(50, 90, 200, 480, true);
-        
+
         g.setColor(co11);
         g.fill3DRect(55, 300, 190, 50, true);
-       
-               
-    
-}
-    
+
+    }
+
 }
