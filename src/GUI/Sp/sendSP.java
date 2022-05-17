@@ -11,12 +11,12 @@ import javax.swing.table.DefaultTableModel;
 public class sendSP extends JPanel implements ActionListener{
     
     private ImageIcon img ;
-    JLabel l1;
+    JLabel setTheDateLbl;
     javax.swing.JTable jTableEvents = new javax.swing.JTable();
     DefaultTableModel dtm = new DefaultTableModel();
     database db=new database();
     JScrollPane soc;
-    JButton b1 ;
+    JButton sendToPmBtn ;
     Font newFontlog = new Font("Comic Sans MS", Font.BOLD, 30);
     Font newFont = new Font("Comic Sans MS", Font.BOLD, 24);
     Color co1 = new Color(207,218,200);
@@ -29,11 +29,11 @@ public class sendSP extends JPanel implements ActionListener{
     this.setLayout(null);
         this.setSize(1000, 700);
         
-        l1 = new JLabel("Set The Date And Price For All Event");
-        l1.setBounds(310, 30, 400, 30);
-        l1.setFont(newFontlog);
-        l1.setBackground(co1);
-        this.add(l1);
+        setTheDateLbl = new JLabel("Set The Date And Price For All Event");
+        setTheDateLbl.setBounds(310, 30, 400, 30);
+        setTheDateLbl.setFont(newFontlog);
+        setTheDateLbl.setBackground(co1);
+        this.add(setTheDateLbl);
         
         
         ////////////////////////////////
@@ -69,14 +69,14 @@ public class sendSP extends JPanel implements ActionListener{
         
         ///////////////////////////////
         
-            b1 = new JButton("Send To PM...");
-            b1.setBounds(500, 500, 300, 70);
-            b1.setFont(newFont);
-            b1.setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, co11));
-            b1.setBackground(co15);
-            b1.setForeground(co3);
-            b1.addActionListener(this);
-            this.add(b1);
+            sendToPmBtn = new JButton("Send To PM...");
+            sendToPmBtn.setBounds(500, 500, 300, 70);
+            sendToPmBtn.setFont(newFont);
+            sendToPmBtn.setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, co11));
+            sendToPmBtn.setBackground(co15);
+            sendToPmBtn.setForeground(co3);
+            sendToPmBtn.addActionListener(this);
+            this.add(sendToPmBtn);
         
     }
     
@@ -92,7 +92,7 @@ public class sendSP extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        if(arg0.getSource()==b1){
+        if(arg0.getSource()==sendToPmBtn){
             for(int i=0; i<dtm.getRowCount();i++)
             {
                 db.addPriceDate((String)dtm.getValueAt(i, 0),
