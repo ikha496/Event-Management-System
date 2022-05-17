@@ -1,6 +1,6 @@
 package event.managment.system;
 
-import project.pl.*;
+import GUI.login1;
 import java.sql.*;
 import Database.database;
 public class EventManagmentSystem {
