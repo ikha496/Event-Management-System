@@ -230,10 +230,10 @@ public class login1 extends JFrame implements ActionListener{
                         Customer cus = new Customer();
                         this.setVisible(false);
                     } else if ("sp".equals(role.toLowerCase())) {
-                        PM pm1 = new PM();
+                        Sp sp1 = new Sp();
                         this.setVisible(false);
                     } else if ("pm".equals(role.toLowerCase())) {
-                        Sp sp1 = new Sp();
+                        PM pm1 = new PM();
                         this.setVisible(false);
                     }
 
