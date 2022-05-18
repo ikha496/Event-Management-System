@@ -1,6 +1,7 @@
 package GUI.Admin;
 
-import Database.database;
+import Database.Database;
+import event.managment.system.Admin;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -13,7 +14,7 @@ public class ShowRequestsPanel extends JPanel implements ActionListener{
     JLabel theRequestsLbl;
     javax.swing.JTable jTableEvents = new javax.swing.JTable();
     DefaultTableModel dtm = new DefaultTableModel();
-    database db=new database();
+    Database db=new Database();
     JScrollPane soc;
     JButton sendRequestsBtn ;
     Font newFontlog = new Font("Comic Sans MS", Font.BOLD, 30);
@@ -43,7 +44,8 @@ public class ShowRequestsPanel extends JPanel implements ActionListener{
         dtm.addColumn("Event Details");
         dtm.addColumn("Password");
         try {
-            ResultSet resulSet=db.getEvents("admin");
+            Admin e = new Admin();
+            ResultSet resulSet=e.getEvents();
             while(resulSet.next()){
                 dtm.addRow(new Object[]{resulSet.getString("reservationNumber"),
                     resulSet.getString("eventName"),resulSet.getString("location"),
@@ -84,7 +86,7 @@ public class ShowRequestsPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent arg0) {
         if(arg0.getSource()==sendRequestsBtn){
-            database.update("admin", "pm1");
+            Database.update("admin", "pm1");
             dtm.setRowCount(0);
             dtm.fireTableDataChanged();
             JOptionPane.showMessageDialog(null,"Requests sent succesfully");

@@ -2,11 +2,11 @@ package event.managment.system;
 
 import GUI.login1;
 import java.sql.*;
-import Database.database;
+import Database.Database;
 public class EventManagmentSystem {
 
     public static void main(String[] args) throws SQLException {
-        database db = new database();
+        Database db = new Database();
         login1 lg = new login1();
     }
 }

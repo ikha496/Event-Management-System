@@ -1,5 +1,6 @@
-package GUI.Customer;
+//package GUI.Customer;
 
+import GUI.Customer.*;
 import GUI.mainBoard;
 import java.awt.Color;
 import java.awt.Font;

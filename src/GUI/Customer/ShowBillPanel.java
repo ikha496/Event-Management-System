@@ -1,6 +1,6 @@
 package GUI.Customer;
 
-import Database.database;
+import Database.Database;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
@@ -14,7 +14,7 @@ public class ShowBillPanel extends JPanel implements ActionListener {
     JLabel theRequestsLbl;
     javax.swing.JTable jTableEvents = new javax.swing.JTable();
     DefaultTableModel dtm = new DefaultTableModel();
-    database db = new database();
+    Database db = new Database();
     JScrollPane soc;
     JButton confirmBtn;
     Font newFontlog = new Font("Comic Sans MS", Font.BOLD, 30);
@@ -84,7 +84,7 @@ public class ShowBillPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
-        database.update("user2", "confirmed");
+        Database.update("user2", "confirmed");
         dtm.setRowCount(0);
         dtm.fireTableDataChanged();
         JOptionPane.showMessageDialog(null, "Congratulations Your Event is Confirmed");

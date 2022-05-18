@@ -2,10 +2,10 @@ package GUI;
 
 
 import GUI.Sp.Sp;
-import GUI.Admin.Admin;
+import GUI.Admin.AdminPanel;
 import GUI.Customer.Customer;
 import GUI.Pm.PM;
-import Database.database;
+import Database.Database;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
@@ -213,7 +213,7 @@ public class login1 extends JFrame implements ActionListener{
         
         if(e.getSource() == b1)
         {
-            database d = new database();
+            Database d = new Database();
             d.connect();
             try {
                 ResultSet resultSet = d.login(us.getText());
@@ -224,7 +224,7 @@ public class login1 extends JFrame implements ActionListener{
                 if (password.equals(pa.getText())) {
                     email=resultSet.getString("eMail");
                     if ("admin".equals(role.toLowerCase())) {
-                        Admin admin1 = new Admin();
+                        AdminPanel admin1 = new AdminPanel();
                         this.setVisible(false);
                     } else if ("user".equals(role.toLowerCase())) {
                         Customer cus = new Customer();
@@ -250,7 +250,7 @@ public class login1 extends JFrame implements ActionListener{
         
         if(e.getSource() == b2)
         {
-            database d=new database();
+            Database d=new Database();
             d.connect();
             int phone;
             try {

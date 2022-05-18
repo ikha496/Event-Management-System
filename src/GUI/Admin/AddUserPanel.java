@@ -2,7 +2,7 @@ package GUI.Admin;
 
 import GUI.Admin.NavigationPanel;
 import GUI.mainBoard;
-import Database.database;
+import Database.Database;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -166,7 +166,7 @@ public class AddUserPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent arg0) {
         if (arg0.getSource() == submitBtn) {
-            database d = new database();
+            Database d = new Database();
             d.connect();
             int phone;
             try {
