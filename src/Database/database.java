@@ -2,11 +2,11 @@ package Database;
 
 import java.sql.*;
 import java.util.*;
-public class database {
+public class Database {
     public static Connection con = null;
     public static java.sql.PreparedStatement ps ;
 
-    public database() {
+    public Database() {
         connect();
     }
     

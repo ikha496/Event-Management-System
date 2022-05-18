@@ -1,6 +1,7 @@
 package GUI.Pm;
 
-import Database.database;
+import Database.Database;
+import event.managment.system.Pm;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.ResultSet;
@@ -17,7 +18,7 @@ public class SendBillPm extends JPanel implements ActionListener{
     JButton sendToCus_Btn ;
     javax.swing.JTable jTableEvents = new javax.swing.JTable();
     DefaultTableModel dtm = new DefaultTableModel();
-    database db=new database();
+    Database db=new Database();
     Font newFontlog = new Font("Comic Sans MS", Font.BOLD, 30);
     Font newFont = new Font("Comic Sans MS", Font.BOLD, 24);
     Color co1 = new Color(207,218,200);
@@ -45,7 +46,9 @@ public class SendBillPm extends JPanel implements ActionListener{
         dtm.addColumn("Price");
         dtm.addColumn("Date");
         try {
-        ResultSet events=db.getEvents("pm2");
+            Pm pm = new Pm();
+            
+        ResultSet events=pm.getFinishedEvents();
         
         while(events.next()){
             dtm.addRow(new Object[]{events.getString("eventName"),
@@ -89,7 +92,8 @@ public class SendBillPm extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent arg0) {
         if(arg0.getSource()==sendToCus_Btn){
-            database.update("pm2", "user2");
+            Pm pm = new Pm();
+            pm.sendEventsToCustomer();
             dtm.setRowCount(0);
             dtm.fireTableDataChanged();
             JOptionPane.showMessageDialog(null,"Bills sent succesfully");

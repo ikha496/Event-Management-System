@@ -1,7 +1,7 @@
 package GUI.Customer;
 
 
-import Database.database;
+import Database.Database;
 import GUI.login1;
 import event.managment.system.Mailer;
 import java.sql.*;
@@ -147,7 +147,7 @@ public class CreateEventPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent arg0) {
         if(arg0.getSource()==submitBtn){
-        database d=new database();
+        Database d=new Database();
         if(password.getText().equals(rePassword.getText())){
             d.insertEvent(eventName.getText(),locationTextField.getText(), eventDetailsTextArea.getText()
                     , password.getText(),Integer.parseInt(re.getText()),login1.email);

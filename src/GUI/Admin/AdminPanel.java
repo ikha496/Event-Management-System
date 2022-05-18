@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class Admin extends JFrame implements ActionListener {
+public class AdminPanel extends JFrame implements ActionListener {
     
         NavigationPanel adminNavigationPanel = new NavigationPanel();
         mainBoard adminBoard = new mainBoard();
@@ -25,7 +25,7 @@ public class Admin extends JFrame implements ActionListener {
         Color co4 = new Color(24,77,71);
         
         
-        public Admin()
+        public AdminPanel()
         {
             this.setTitle("Admin");
             this.setSize(1000, 700);

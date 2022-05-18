@@ -1,6 +1,6 @@
 package GUI.Sp;
 
-import Database.database;
+import Database.Database;
 import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyVetoException;
@@ -14,7 +14,7 @@ public class sendSP extends JPanel implements ActionListener{
     JLabel setTheDateLbl;
     javax.swing.JTable jTableEvents = new javax.swing.JTable();
     DefaultTableModel dtm = new DefaultTableModel();
-    database db=new database();
+    Database db=new Database();
     JScrollPane soc;
     JButton sendToPmBtn ;
     Font newFontlog = new Font("Comic Sans MS", Font.BOLD, 30);
@@ -100,7 +100,7 @@ public class sendSP extends JPanel implements ActionListener{
                         (String)dtm.getValueAt(i, 5));
             }
 
-            database.update("sp","pm2");
+            Database.update("sp","pm2");
             dtm.setRowCount(0);
             dtm.fireTableDataChanged();
             JOptionPane.showMessageDialog(null,"Requests sent succesfully");

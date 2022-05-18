@@ -1,5 +1,5 @@
 package event.managment.system;
-public class user {
+public class User {
     protected int id;
     protected String name;
     protected String eMail;
@@ -7,9 +7,13 @@ public class user {
     protected String role;
     protected String gender;
     protected int phoneNo;
-
-    public user(String eMail) {
+    protected String username;
+    
+    public User(String eMail) {
         this.eMail = eMail;
+    }
+    public User(){
+        
     }
     
 }

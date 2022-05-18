@@ -1,6 +1,7 @@
 package GUI.Pm;
 
-import Database.database;
+import Database.Database;
+import event.managment.system.Pm;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -13,7 +14,7 @@ public class ShowEventPanel extends JPanel implements ActionListener{
     JLabel label1_the_bill;
     javax.swing.JTable jTableEvents = new javax.swing.JTable();
     DefaultTableModel dtm = new DefaultTableModel();
-    database db=new database();
+    Database db=new Database();
     JScrollPane soc;
     JButton sendToSpBtn ;
     Font newFontlog = new Font("Comic Sans MS", Font.BOLD, 30);
@@ -46,7 +47,8 @@ public class ShowEventPanel extends JPanel implements ActionListener{
         dtm.addColumn("Password");
         dtm.addColumn("ownerEmail");
         try {
-        ResultSet resulSet=db.getEvents("pm1");
+            Pm pm = new Pm();
+        ResultSet resulSet=pm.getCustomerRequest();
         while(resulSet.next()){
             dtm.addRow(new Object[]{resulSet.getString("reservationNumber"),
                 resulSet.getString("eventName"),resulSet.getString("location"),
@@ -91,7 +93,8 @@ public class ShowEventPanel extends JPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent arg0) {
         if(arg0.getSource()==sendToSpBtn){
-            database.update("pm1", "sp");
+            Pm pm = new Pm();
+            pm.sendEventsToSp();
             dtm.setRowCount(0);
             dtm.fireTableDataChanged();
             JOptionPane.showMessageDialog(null,"Requests sent succesfully");
